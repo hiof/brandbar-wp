@@ -1,0 +1,12 @@
+{
+  "name": "hiof-brandbar-wp",
+  "version": "1.0.0",
+  "homepage": "https://github.com/hiof/brandbar-wp",
+  "authors": [
+    "Kenneth Dahlstrøm <kenneth.dahlstrom@hiof.no>"
+  ],
+  "description": "Hiof-brandbar-wp package",
+  "license": "GNU",
+  "dependencies": {
+  }
+}
