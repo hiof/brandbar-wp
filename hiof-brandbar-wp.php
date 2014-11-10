@@ -140,38 +140,24 @@
     // Var setup
     $options = get_option( 'hiof_brandbar_settings' );
 
-
-    echo '<script type="text/javascript">';
-      echo "\r\n";
-      echo '$(function(){';
-      echo "\r\n";
-        echo 'window.brandOptions = {';
-      echo "\r\n";
-          // Output options
-          echo 'alignment:\'' . $options['hiof_brandbar_text_field_1'] . '\',';
-          echo 'offset:\'' . $options['hiof_brandbar_text_field_2'] . '\'';
-      echo "\r\n";
-        echo '}';
-      echo "\r\n";
-        echo '$.ajax({';
-      echo "\r\n";
-          echo 'type: "GET",async: false,url: "//hiof.no/assets/plugins/hiof-brandbar/",';
-      echo "\r\n";
-          echo 'success: function(data) {';
-            echo 'var css    = \'<link type="text/css" rel="stylesheet" href="\' + data.css + \'" />\',js = \'<script type="text/javascript" src="\' + data.js + \'" />\';';
-      echo "\r\n";
-            echo "$('head').append(js);";
-      echo "\r\n";
-            echo "$('head').append(css);";
-      echo "\r\n";
-          echo '}';
-      echo "\r\n";
-        echo '});';
-      echo "\r\n";
-      echo '});';
-      echo "\r\n";
-    echo '</script>';
-
+    print '
+      <script type="text/javascript">
+        $(function(){
+          window.brandOptions = {
+            alignment:\'' . $options['hiof_brandbar_text_field_1'] . '\',
+            offset:\'' . $options['hiof_brandbar_text_field_2'] . '\'
+          }
+          $.ajax({
+            type: "GET",async: false,url: "//hiof.no/assets/plugins/hiof-brandbar/",
+            success: function(data) {
+              var css    = \'<link type="text/css" rel="stylesheet" href="\' + data.css + \'" />\',js = \'<script type="text/javascript" src="\' + data.js + \'" />\';
+              $("head").append(js);
+              $("head").append(css);
+            }
+          });
+        });
+      </script>
+    ';
   }
 
   add_action('wp_footer', 'insert_jquery', 99);
