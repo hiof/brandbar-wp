@@ -21,4 +21,4 @@ This is functionality to add a Høgskolen i Østfold brandbar-bar at the end of 
 
 ### Roadmap
 
-v1.0.0 - Initial brandbar-wp functionality
+v2.0.0 - Rewerite the plugin to use native JS
